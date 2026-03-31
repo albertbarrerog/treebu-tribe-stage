@@ -1,36 +1,98 @@
-const values = [
-  "Colabora", "Comparte", "Expresa",
-  "Escucha", "Respeta", "Crea",
-  "Conciencia", "Pluralidad", "Expansión",
-];
+import { useEffect, useMemo, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const AboutSection = () => {
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const textContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const paragraphs = useMemo(
+    () => [
+      "Somos un espacio de encuentro, comunidad y creación colectiva. Nos inspira el concepto de tribu como forma contemporánea de pertenecer: sin fronteras, sin etiquetas, sin exclusiones.",
+      "Nuestros espacios son seguros, diversos y respetuosos, donde cada persona vive la experiencia desde la libertad y la convivencia.",
+      "Utilizamos la música electrónica como medio para encontrarnos, escucharnos y reconocernos.",
+    ],
+    [],
+  );
+
+  const wordsByParagraph = useMemo(
+    () => paragraphs.map((p) => p.split(" ")),
+    [paragraphs],
+  );
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const titleEl = titleRef.current;
+    const textContainer = textContainerRef.current;
+    if (!titleEl || !textContainer) return;
+
+    const wordSpans = Array.from(textContainer.querySelectorAll("span[data-word]"));
+
+    const ctx = gsap.context(() => {
+      gsap.to(titleEl, {
+        color: "rgba(255,255,255,1)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: titleEl,
+          start: "top 85%",
+          end: "bottom 80%",
+          scrub: true,
+        },
+      });
+
+      gsap.to(wordSpans, {
+        color: "rgba(255,255,255,0.75)",
+        stagger: 0.05,
+        ease: "none",
+        scrollTrigger: {
+          trigger: textContainer,
+          start: "top 80%",
+          end: "bottom 40%",
+          scrub: true,
+        },
+      });
+    }, textContainer);
+
+    return () => ctx.revert();
+  }, [wordsByParagraph]);
+
   return (
-    <section id="sobre" className="section-padding">
-      <div className="max-w-3xl mx-auto text-center">
-        <p className="text-sm font-body uppercase tracking-[0.3em] text-muted-foreground mb-4">
-          Colectivo de música electrónica
-        </p>
-        <h2 className="font-display text-6xl md:text-8xl text-foreground mb-8">
+    <section id="colectivo" className="section-padding -mt-[60px] md:-mt-[192px]">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2
+          ref={titleRef}
+          className="font-display text-3xl md:text-6xl mb-4"
+          style={{ color: "rgba(255,255,255,0.15)" }}
+        >
           TREEBU
         </h2>
-        <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
-          TREEBU nació como una idea simple: crear un espacio donde la música electrónica sea el lenguaje común. En Santa Rosa de Cabal, entre montañas y termales, construimos experiencias inmersivas donde la pista de baile se convierte en un punto de encuentro sin etiquetas, sin juicio, sin fronteras.
+        <p className="text-xs md:text-sm font-body uppercase tracking-[0.1em] md:tracking-[0.3em] text-muted-foreground">
+          Colectivo de música electrónica
         </p>
-        <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-16">
-          Somos una tribu contemporánea. Un colectivo que cree en la diversidad, la expresión libre y el poder transformador del sonido. Cada evento es una invitación a perderse en el ritmo y encontrarse en la comunidad.
-        </p>
-
-        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-lg mx-auto">
-          {values.map((value) => (
-            <div
-              key={value}
-              className="border border-border/50 py-4 px-2 text-center hover:border-foreground/50 hover:bg-secondary/50 transition-all duration-300"
-            >
-              <span className="font-display text-lg md:text-xl tracking-wider text-foreground">
-                {value}
-              </span>
-            </div>
+        <div
+          ref={textContainerRef}
+          className="font-body mt-10 space-y-8"
+          style={{
+            fontSize: "clamp(16px, 4.5vw, 40px)",
+            lineHeight: 1.22,
+            letterSpacing: "-0.01em",
+            fontWeight: 500,
+          }}
+        >
+          {wordsByParagraph.map((words, pIdx) => (
+            <p key={pIdx}>
+              {words.map((word, i) => (
+                <span
+                  key={`${pIdx}-${word}-${i}`}
+                  data-word
+                  style={{ color: "rgba(255,255,255,0.08)" }}
+                >
+                  {word}
+                  {i < words.length - 1 ? " " : ""}
+                </span>
+              ))}
+            </p>
           ))}
         </div>
       </div>

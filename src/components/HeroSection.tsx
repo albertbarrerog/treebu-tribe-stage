@@ -16,7 +16,7 @@ const HeroSection = () => {
         <p className="text-sm md:text-base font-body uppercase tracking-[0.3em] text-muted-foreground mb-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           Santa Rosa de Cabal, Risaralda — Música electrónica
         </p>
-        <h1 className="font-display text-7xl md:text-[10rem] lg:text-[12rem] leading-[0.85] text-foreground animate-fade-up" style={{ animationDelay: "0.4s" }}>
+        <h1 className="font-heading text-5xl md:text-7xl lg:text-[7.5rem] leading-[0.85] text-foreground animate-fade-up" style={{ animationDelay: "0.4s" }}>
           TRIBU SIN
           <br />
           FRONTERAS
@@ -29,7 +29,7 @@ const HeroSection = () => {
             TREEBU 002 — 17 Mayo
           </a>
           <a
-            href="#sobre"
+            href="#colectivo"
             className="font-body text-sm uppercase tracking-widest border border-foreground/40 text-foreground px-8 py-4 hover:border-foreground transition-colors duration-300"
           >
             Explorar colectivo

@@ -17,7 +17,7 @@ const GallerySection = () => {
         <p className="text-sm font-body uppercase tracking-[0.3em] text-muted-foreground mb-4">
           Momentos
         </p>
-        <h2 className="font-display text-6xl md:text-8xl text-foreground mb-16">
+        <h2 className="font-heading text-4xl md:text-6xl text-foreground mb-16">
           GALERÍA
         </h2>
 

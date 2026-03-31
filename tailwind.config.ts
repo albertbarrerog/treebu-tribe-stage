@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Bebas Neue'", "sans-serif"],
-        body: ["'Inter'", "sans-serif"],
+        display: ["'Onder'", "sans-serif"],
+        body: ["'Circe'", "sans-serif"],
+        heading: ["'Onder'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
