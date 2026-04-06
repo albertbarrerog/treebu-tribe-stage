@@ -159,8 +159,9 @@ const Header = () => {
         </ul>
 
         <a
-          href="#"
-          onClick={(e) => e.preventDefault()}
+          href="https://tickets.treebumusic.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:inline-flex items-center text-xs font-body uppercase tracking-widest rounded-full bg-[#C8F542] text-[#0a0a0a] font-bold px-5 py-2 ml-6 hover:bg-[#d4f050] transition-colors duration-200 border-0"
         >
           Boletas
@@ -209,12 +210,11 @@ const Header = () => {
             ))}
             <li>
               <a
-                href="#"
+                href="https://tickets.treebumusic.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm font-body uppercase tracking-widest rounded-full bg-[#C8F542] text-[#0a0a0a] font-bold px-6 py-3 min-h-[44px] inline-flex items-center justify-center hover:bg-[#d4f050] transition-colors duration-200 border-0"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpen(false);
-                }}
+                onClick={() => setOpen(false)}
               >
                 Boletas
               </a>

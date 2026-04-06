@@ -95,7 +95,9 @@ const EventSection = () => {
             <div style={isDesktop ? { marginTop: "-90px" } : undefined}>
               {/* TODO: agregar link de tiquetera */}
               <a
-                href="#"
+                href="https://tickets.treebumusic.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block font-body text-sm font-bold uppercase tracking-widest bg-[#C8F542] text-[#0a0a0a] px-12 py-5 hover:brightness-110 transition duration-300 mt-6"
                 style={isDesktop ? { marginTop: "120px" } : { marginTop: "24px" }}
               >
