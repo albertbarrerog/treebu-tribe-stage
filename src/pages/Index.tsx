@@ -19,7 +19,7 @@ const Index = () => {
           backgroundImage: `url(${eventBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: window.innerWidth >= 768 ? "fixed" : "scroll",
         }}
       >
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.75)" }} />
