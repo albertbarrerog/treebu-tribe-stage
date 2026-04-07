@@ -19,7 +19,7 @@ const EventSection = () => {
     <section id="evento" className="relative py-0">
       <div className="relative z-10 section-padding">
         <div className="max-w-5xl mx-auto">
-          <span className="inline-block text-xs font-body uppercase tracking-[0.3em] text-[#E8833A] border border-[#E8833A] px-4 py-2 mb-6">
+          <span className="inline-block text-xs font-body uppercase tracking-[0.3em] text-[#C8F542] border border-[#C8F542] px-4 py-2 mb-6">
             Próximo Evento
           </span>
 
@@ -73,7 +73,7 @@ const EventSection = () => {
                         : "border-border/50"
                     }`}
                   >
-                    <p className="text-xs font-body uppercase tracking-wider text-[#E8833A] mb-2">
+                    <p className="text-xs font-body uppercase tracking-wider text-[#C8F542] mb-2">
                       {p.tier}
                     </p>
                     <p className="font-heading text-2xl text-foreground mb-2 whitespace-nowrap">{p.price}</p>
@@ -82,7 +82,7 @@ const EventSection = () => {
                         p.status === "Agotado"
                           ? "text-destructive line-through"
                           : p.status === "Disponible"
-                          ? "text-[#E8833A]"
+                          ? "text-[#C8F542]"
                           : "text-muted-foreground"
                       }`}
                     >
@@ -98,7 +98,7 @@ const EventSection = () => {
                 href="https://tickets.treebumusic.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-body text-sm font-bold uppercase tracking-widest bg-[#E8833A] text-[#0a0a0a] px-12 py-5 hover:brightness-110 transition duration-300 mt-6"
+                className="inline-block font-body text-sm font-bold uppercase tracking-widest bg-[#C8F542] text-[#0a0a0a] px-12 py-5 hover:brightness-110 transition duration-300 mt-6"
                 style={isDesktop ? { marginTop: "120px" } : { marginTop: "24px" }}
               >
                 COMPRAR BOLETAS
