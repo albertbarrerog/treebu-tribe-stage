@@ -25,14 +25,14 @@ const Index = () => {
     <>
       <div
         className="relative"
-        style={{
+        style={isMobile ? { backgroundColor: "#0a0a0a" } : {
           backgroundImage: `url(${eventBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: isMobile ? "local" : "fixed",
+          backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.75)" }} />
+        {!isMobile && <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.75)" }} />}
         <div className="relative z-10">
           <Header />
           <main>
