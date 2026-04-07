@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import AboutSection from "@/components/AboutSection";
 import DJsSection from "@/components/DJsSection";
@@ -11,6 +12,15 @@ import FloatingCTA from "@/components/FloatingCTA";
 import eventBg from "@/assets/event-bg.png";
 
 const Index = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <>
       <div
@@ -19,7 +29,7 @@ const Index = () => {
           backgroundImage: `url(${eventBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: window.innerWidth >= 768 ? "fixed" : "scroll",
+          backgroundAttachment: isMobile ? "local" : "fixed",
         }}
       >
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.75)" }} />
