@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const prices = [
-  { tier: "etapa early treebu", price: "$40.000", status: "Disponible" },
+  { tier: "etapa preventa", price: "$55.000", status: "Disponible" },
 ];
 
 const EventSection = () => {
