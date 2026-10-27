@@ -1,5 +1,13 @@
 # treebu-tribe-stage
 
+> 🔐 **PENDIENTE DE SEGURIDAD (identificado el 27 oct 2026 desde `fomup/seguridad`) — hacerlo en una sesión de este repo:**
+> - 3 alertas críticas en `vitest`/`tinypool` (**herramientas de pruebas, no producción**) y 30 altas: revisar primero las de dependencias de producción (H-046)
+> - Dependabot está activo (alertas en GitHub → *Security → Dependabot*). Corregir = actualizar el paquete a la versión que indica la alerta, `npm install`, compilar, probar y volver a implementar en EasyPanel. Verificar después que el sitio responda (`treebumusic.com`).
+> - `Dockerfile` con `node:20` para compilar (sin soporte): pasar a `node:22`.
+> Detalle y estado general: repo privado `albertbarrerog/seguridad-albert` (`HALLAZGOS.md`) y plan maestro en
+> `fomup/seguridad/PLAN-MAESTRO.md`. **Al terminar, anotarlo en `seguridad-albert/HALLAZGOS.md` y borrar o tachar este bloque.**
+
+
 > ⚠️ **ZONA ROJA HASTA POST-17 MAYO 2026**
 >
 > Este repo es la landing pública de TREEBU (`treebumusic.com`) **Y** sirve como
